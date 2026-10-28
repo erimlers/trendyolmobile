@@ -59,20 +59,6 @@ export function ProductCard({product}: {product: Product}) {
           alignItems: 'center',
           justifyContent: 'center',
         }}>
-        <View
-          style={{
-            position: 'absolute',
-            top: 8,
-            left: 8,
-            backgroundColor: colors.orange,
-            borderRadius: 20,
-            paddingHorizontal: 6,
-            paddingVertical: 4,
-          }}>
-          <Text style={{color: colors.background, fontSize: 8, fontWeight: '700', textAlign: 'center'}}>
-            EN ÇOK{'\n'}SATAN
-          </Text>
-        </View>
         <Pressable
           onPress={() => setLiked(value => !value)}
           style={{
@@ -97,8 +83,10 @@ export function ProductCard({product}: {product: Product}) {
         <Text style={{color: colors.muted, fontSize: 12}}>{product.brand}</Text>
       </View>
 
-      <View style={{backgroundColor: colors.orange, paddingVertical: 4, paddingHorizontal: 8}}>
-        <Text style={{color: colors.background, fontSize: 11, fontWeight: '700'}}>En Çok Satan  #1</Text>
+      <View style={{backgroundColor: colors.orange, paddingVertical: 4}}>
+        <Text style={{color: colors.background, fontSize: 11, fontWeight: '700', textAlign: 'center'}}>
+          En Çok Satan  #1
+        </Text>
       </View>
 
       <View style={{padding: 8, gap: 4}}>
