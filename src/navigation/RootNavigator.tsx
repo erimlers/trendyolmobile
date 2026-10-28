@@ -5,6 +5,7 @@ import {TopBar} from '../layout/TopBar';
 import {AccountScreen} from '../screens/AccountScreen';
 import {CartScreen} from '../screens/CartScreen';
 import {FavoritesScreen} from '../screens/FavoritesScreen';
+import {GoScreen} from '../screens/GoScreen';
 import {HomeScreen} from '../screens/HomeScreen';
 import {OrderSuccessScreen} from '../screens/OrderSuccessScreen';
 import {ProductDetailScreen} from '../screens/ProductDetailScreen';
@@ -23,6 +24,7 @@ function Tabs() {
         headerShadowVisible: false,
       }}>
       <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Go" component={GoScreen} />
       <Tab.Screen name="Favorites" component={FavoritesScreen} />
       <Tab.Screen name="Cart" component={CartScreen} />
       <Tab.Screen name="Account" component={AccountScreen} />
