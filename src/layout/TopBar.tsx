@@ -1,5 +1,5 @@
 import {useRef, useState} from 'react';
-import {Animated, Dimensions, Modal, Pressable, TextInput, View} from 'react-native';
+import {Animated, Dimensions, Modal, Pressable, Text, TextInput, View} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import Svg, {Circle, Path, Rect} from 'react-native-svg';
 import {colors} from '../theme/colors';
@@ -36,24 +36,6 @@ function CameraIcon() {
       <Path d="M8 7l1.2-2h5.6L16 7" stroke={colors.orange} strokeWidth={1.8} strokeLinejoin="round" />
       <Rect x={4} y={7} width={16} height={12} rx={2} stroke={colors.orange} strokeWidth={1.8} />
       <Circle cx={12} cy={13} r={3} stroke={colors.orange} strokeWidth={1.8} />
-    </Svg>
-  );
-}
-
-function MailIcon() {
-  return (
-    <Svg width={22} height={22} viewBox="0 0 24 24" fill="none">
-      <Rect x={3} y={6} width={18} height={12} rx={2} stroke={colors.text} strokeWidth={1.8} />
-      <Path d="M4 7l8 6 8-6" stroke={colors.text} strokeWidth={1.8} strokeLinejoin="round" />
-    </Svg>
-  );
-}
-
-function BellIcon() {
-  return (
-    <Svg width={22} height={22} viewBox="0 0 24 24" fill="none">
-      <Path d="M6 16V11a6 6 0 1112 0v5l1.5 2h-15L6 16z" stroke={colors.text} strokeWidth={1.8} strokeLinejoin="round" />
-      <Path d="M10 19a2 2 0 004 0" stroke={colors.text} strokeWidth={1.8} strokeLinecap="round" />
     </Svg>
   );
 }
@@ -137,11 +119,16 @@ export function TopBar({onBack}: TopBarProps) {
           <CameraIcon />
         </View>
 
-        <Pressable style={{width: 32, height: 40, alignItems: 'center', justifyContent: 'center'}}>
-          <MailIcon />
-        </Pressable>
-        <Pressable style={{width: 32, height: 40, alignItems: 'center', justifyContent: 'center'}}>
-          <BellIcon />
+        <Pressable
+          style={{
+            backgroundColor: colors.orange,
+            borderRadius: 6,
+            height: 32,
+            paddingHorizontal: spacing.sm,
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+          <Text style={{color: colors.background, fontSize: 12, fontWeight: '700'}}>Giriş Yap</Text>
         </Pressable>
       </View>
 

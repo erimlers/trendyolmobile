@@ -22,6 +22,10 @@ const imageColors: Record<string, string> = {
   powerbank: '#ECECEC',
 };
 
+export function productImageColor(imageKey: string) {
+  return imageColors[imageKey] ?? colors.input;
+}
+
 function formatPrice(value: number) {
   const [lira, kurus] = value.toFixed(2).split('.');
   const grouped = lira.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
@@ -38,14 +42,14 @@ function Stars({rating}: {rating: number}) {
   );
 }
 
-export function ProductCard({product}: {product: Product}) {
+export function ProductCard({product, width = 140}: {product: Product; width?: number}) {
   const [liked, setLiked] = useState(false);
   const oldPrice = Math.round(product.price * 1.12 * 100) / 100;
 
   return (
     <View
       style={{
-        width: 168,
+        width,
         borderWidth: 1,
         borderColor: colors.border,
         borderRadius: 12,
@@ -55,7 +59,7 @@ export function ProductCard({product}: {product: Product}) {
       <View
         style={{
           height: 150,
-          backgroundColor: imageColors[product.imageKey] ?? colors.input,
+          backgroundColor: productImageColor(product.imageKey),
           alignItems: 'center',
           justifyContent: 'center',
         }}>
@@ -83,7 +87,7 @@ export function ProductCard({product}: {product: Product}) {
         <Text style={{color: colors.muted, fontSize: 12}}>{product.brand}</Text>
       </View>
 
-      <View style={{backgroundColor: colors.orange, paddingVertical: 4}}>
+      <View style={{backgroundColor: colors.orange, paddingVertical: 3}}>
         <Text style={{color: colors.background, fontSize: 11, fontWeight: '700', textAlign: 'center'}}>
           En Çok Satan  #1
         </Text>
@@ -96,7 +100,7 @@ export function ProductCard({product}: {product: Product}) {
         </Text>
         <View style={{flexDirection: 'row', alignItems: 'center', gap: 4}}>
           <Stars rating={product.rating} />
-          <Text style={{color: colors.muted, fontSize: 11}}>({Math.round(product.rating * 40)})</Text>
+          <Text style={{color: colors.muted, fontSize: 11}}>({Math.round(product.rating * 40)}) 📷</Text>
         </View>
         <Text style={{color: colors.muted, fontSize: 12, textDecorationLine: 'line-through'}}>
           {formatPrice(oldPrice)}

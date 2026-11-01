@@ -29,8 +29,8 @@ export function CategoryRow() {
             key={category.id}
             onPress={() => setSelectedId(category.id)}
             style={{
-              paddingHorizontal: 14,
-              paddingVertical: 8,
+              paddingHorizontal: 10,
+              paddingVertical: 6,
               borderRadius: 20,
               borderWidth: 1,
               borderColor: selected ? colors.orange : colors.border,

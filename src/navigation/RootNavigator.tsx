@@ -19,11 +19,12 @@ function Tabs() {
   return (
     <Tab.Navigator
       tabBar={props => <BottomBar {...props} />}
-      screenOptions={{
-        header: () => <TopBar />,
-        headerShadowVisible: false,
-      }}>
-      <Tab.Screen name="Home" component={HomeScreen} />
+      screenOptions={{headerShown: false}}>
+      <Tab.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{headerShown: true, headerShadowVisible: false, header: () => <TopBar />}}
+      />
       <Tab.Screen name="Go" component={GoScreen} />
       <Tab.Screen name="Favorites" component={FavoritesScreen} />
       <Tab.Screen name="Cart" component={CartScreen} />
@@ -35,12 +36,7 @@ function Tabs() {
 export function RootNavigator() {
   return (
     <Stack.Navigator
-      screenOptions={{
-        header: ({back, navigation}) => (
-          <TopBar onBack={back ? () => navigation.goBack() : undefined} />
-        ),
-        headerShadowVisible: false,
-      }}>
+      screenOptions={{headerShown: false}}>
       <Stack.Screen name="Tabs" component={Tabs} options={{headerShown: false}} />
       <Stack.Screen name="ProductList" component={ProductListScreen} />
       <Stack.Screen name="ProductDetail" component={ProductDetailScreen} />

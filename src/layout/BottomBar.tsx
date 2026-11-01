@@ -14,7 +14,7 @@ const labels: Record<string, string> = {
 
 function HomeIcon({color}: {color: string}) {
   return (
-    <Svg width={22} height={22} viewBox="0 0 24 24" fill="none">
+    <Svg width={28} height={28} viewBox="0 0 24 24" fill="none">
       <Path d="M4 10.5L12 4l8 6.5V20a1 1 0 01-1 1h-5v-6H10v6H5a1 1 0 01-1-1v-9.5z" stroke={color} strokeWidth={1.8} strokeLinejoin="round" />
     </Svg>
   );
@@ -22,7 +22,7 @@ function HomeIcon({color}: {color: string}) {
 
 function HeartIcon({color}: {color: string}) {
   return (
-    <Svg width={22} height={22} viewBox="0 0 24 24" fill="none">
+    <Svg width={28} height={28} viewBox="0 0 24 24" fill="none">
       <Path d="M12 19s-7-4.4-7-8.5A3.5 3.5 0 0112 8a3.5 3.5 0 017 2.5C19 14.6 12 19 12 19z" stroke={color} strokeWidth={1.8} strokeLinejoin="round" />
     </Svg>
   );
@@ -30,7 +30,7 @@ function HeartIcon({color}: {color: string}) {
 
 function BagIcon({color}: {color: string}) {
   return (
-    <Svg width={22} height={22} viewBox="0 0 24 24" fill="none">
+    <Svg width={28} height={28} viewBox="0 0 24 24" fill="none">
       <Path d="M6 8h12l-1 12H7L6 8z" stroke={color} strokeWidth={1.8} strokeLinejoin="round" />
       <Path d="M9 8V7a3 3 0 016 0v1" stroke={color} strokeWidth={1.8} strokeLinecap="round" />
     </Svg>
@@ -39,7 +39,7 @@ function BagIcon({color}: {color: string}) {
 
 function UserIcon({color}: {color: string}) {
   return (
-    <Svg width={22} height={22} viewBox="0 0 24 24" fill="none">
+    <Svg width={28} height={28} viewBox="0 0 24 24" fill="none">
       <Circle cx={12} cy={8} r={3} stroke={color} strokeWidth={1.8} />
       <Path d="M5 19a7 7 0 0114 0" stroke={color} strokeWidth={1.8} strokeLinecap="round" />
     </Svg>
@@ -49,7 +49,7 @@ function UserIcon({color}: {color: string}) {
 // Trendyol Go ikonu renk değiştirmez. Uber logosunun kopyası değil, yemek servisi işareti.
 function GoIcon() {
   return (
-    <Svg width={22} height={22} viewBox="0 0 24 24">
+    <Svg width={28} height={28} viewBox="0 0 24 24">
       <Rect x={2} y={2} width={20} height={20} rx={6} fill="#111111" />
       <Path d="M8 15c1.2-3 2.2-5 4-5s2.8 2 4 5" stroke="#FFFFFF" strokeWidth={1.6} strokeLinecap="round" />
       <Circle cx={9} cy={9} r={1} fill="#06C167" />

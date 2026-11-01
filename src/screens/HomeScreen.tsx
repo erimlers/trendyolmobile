@@ -17,11 +17,11 @@ export function HomeScreen() {
           flexDirection: 'row',
           alignItems: 'center',
           justifyContent: 'space-between',
-          paddingHorizontal: spacing.md,
+          paddingHorizontal: spacing.sm,
           paddingTop: spacing.lg,
           paddingBottom: spacing.sm,
         }}>
-        <Text style={{fontSize: 20, fontWeight: '700', color: colors.text}}>Popüler Ürünler</Text>
+        <Text style={{fontSize: 17, fontWeight: '500', color: colors.text}}>Popüler Ürünler</Text>
         <Pressable>
           <Text style={{color: colors.orange, fontWeight: '700'}}>Tümünü Gör ›</Text>
         </Pressable>
@@ -30,7 +30,7 @@ export function HomeScreen() {
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
-        contentContainerStyle={{paddingHorizontal: spacing.md, gap: spacing.sm, paddingBottom: spacing.lg}}>
+        contentContainerStyle={{paddingHorizontal: spacing.sm, gap: spacing.sm, paddingBottom: spacing.lg}}>
         {products.map(product => (
           <ProductCard key={product.id} product={product} />
         ))}
