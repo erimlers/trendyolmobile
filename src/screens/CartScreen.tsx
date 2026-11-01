@@ -1,6 +1,6 @@
 import {BottomTabNavigationProp} from '@react-navigation/bottom-tabs';
 import {useNavigation} from '@react-navigation/native';
-import {Pressable, ScrollView, Text, useWindowDimensions, View} from 'react-native';
+import {Image, Pressable, ScrollView, Text, useWindowDimensions, View} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import Svg, {Circle, Path} from 'react-native-svg';
 import {productImageColor} from '../components/ProductCard';
@@ -39,9 +39,9 @@ function SuggestedRow({product, imageWidth}: {product: Product; imageWidth: numb
           justifyContent: 'center',
           padding: spacing.xs,
         }}>
-        <Text numberOfLines={2} style={{color: colors.muted, fontSize: 10, textAlign: 'center'}}>
-          {product.brand}
-        </Text>
+        {product.imageUrl ? (
+          <Image source={{uri: product.imageUrl}} style={{width: '100%', height: '100%'}} resizeMode="cover" />
+        ) : null}
       </View>
 
       <View style={{flex: 1, alignSelf: 'stretch', justifyContent: 'space-between'}}>

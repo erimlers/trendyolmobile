@@ -324,7 +324,11 @@ export function AccountScreen() {
         {shortcuts.map(item => (
           <View key={item.label} style={{flex: 1, alignItems: 'center', paddingHorizontal: spacing.xs, gap: spacing.sm}}>
             <ShortcutIcon name={item.icon} />
-            <Text style={{color: colors.text, fontSize: 11, textAlign: 'center'}}>{item.label}</Text>
+            <View style={{height: 30, justifyContent: 'flex-end'}}>
+              <Text numberOfLines={2} style={{color: colors.text, fontSize: 11, lineHeight: 14, textAlign: 'center'}}>
+                {item.label}
+              </Text>
+            </View>
           </View>
         ))}
       </View>

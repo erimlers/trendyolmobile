@@ -11,5 +11,6 @@ export type Product = {
   rating: number;
   categoryId: string;
   imageKey: string;
+  imageUrl?: string;
   sizes: string[];
 };

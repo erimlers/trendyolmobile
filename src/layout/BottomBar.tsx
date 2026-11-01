@@ -1,7 +1,7 @@
 import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
 import {Pressable, Text, View} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import Svg, {Circle, Path, Rect} from 'react-native-svg';
+import Svg, {Circle, Path} from 'react-native-svg';
 import {colors} from '../theme/colors';
 
 const labels: Record<string, string> = {
@@ -46,15 +46,19 @@ function UserIcon({color}: {color: string}) {
   );
 }
 
-// Trendyol Go ikonu renk değiştirmez. Uber logosunun kopyası değil, yemek servisi işareti.
 function GoIcon() {
   return (
-    <Svg width={28} height={28} viewBox="0 0 24 24">
-      <Rect x={2} y={2} width={20} height={20} rx={6} fill="#111111" />
-      <Path d="M8 15c1.2-3 2.2-5 4-5s2.8 2 4 5" stroke="#FFFFFF" strokeWidth={1.6} strokeLinecap="round" />
-      <Circle cx={9} cy={9} r={1} fill="#06C167" />
-      <Circle cx={15} cy={9} r={1} fill="#06C167" />
-    </Svg>
+    <View
+      style={{
+        width: 28,
+        height: 28,
+        borderRadius: 8,
+        backgroundColor: '#06C167',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}>
+      <Text style={{color: '#FFFFFF', fontSize: 13, fontWeight: '800'}}>go</Text>
+    </View>
   );
 }
 

@@ -1,11 +1,15 @@
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {useNavigation} from '@react-navigation/native';
 import {Pressable, ScrollView, Text, View} from 'react-native';
 import {CategoryRow} from '../components/CategoryRow';
 import {ProductCard} from '../components/ProductCard';
 import {products} from '../data/catalog';
+import {RootStackParamList} from '../navigation/types';
 import {colors} from '../theme/colors';
 import {spacing} from '../theme/spacing';
 
 export function HomeScreen() {
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   return (
     <ScrollView
       style={{flex: 1, backgroundColor: colors.background}}
@@ -32,7 +36,11 @@ export function HomeScreen() {
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={{paddingHorizontal: spacing.sm, gap: spacing.sm, paddingBottom: spacing.lg}}>
         {products.map(product => (
-          <ProductCard key={product.id} product={product} />
+          <ProductCard
+            key={product.id}
+            product={product}
+            onPress={() => navigation.navigate('ProductDetail', {productId: product.id})}
+          />
         ))}
       </ScrollView>
     </ScrollView>

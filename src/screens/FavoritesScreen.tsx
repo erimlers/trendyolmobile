@@ -1,9 +1,12 @@
 import {ReactNode} from 'react';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {useNavigation} from '@react-navigation/native';
 import {ScrollView, Text, useWindowDimensions, View} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import Svg, {Circle, Path, Rect} from 'react-native-svg';
 import {ProductCard} from '../components/ProductCard';
 import {products} from '../data/catalog';
+import {RootStackParamList} from '../navigation/types';
 import {colors} from '../theme/colors';
 import {spacing} from '../theme/spacing';
 
@@ -36,6 +39,7 @@ function Perk({icon, label}: {icon: ReactNode; label: string}) {
 
 export function FavoritesScreen() {
   const insets = useSafeAreaInsets();
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const {width} = useWindowDimensions();
   const cardWidth = (width - spacing.md * 2 - spacing.sm) / 2;
 
@@ -134,7 +138,12 @@ export function FavoritesScreen() {
           gap: spacing.sm,
         }}>
         {products.map(product => (
-          <ProductCard key={product.id} product={product} width={cardWidth} />
+          <ProductCard
+            key={product.id}
+            product={product}
+            width={cardWidth}
+            onPress={() => navigation.navigate('ProductDetail', {productId: product.id})}
+          />
         ))}
       </View>
       </ScrollView>

@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {Pressable, Text, View} from 'react-native';
+import {Image, Pressable, Text, View} from 'react-native';
 import Svg, {Path} from 'react-native-svg';
 import {Product} from '../types/product';
 import {colors} from '../theme/colors';
@@ -42,12 +42,21 @@ function Stars({rating}: {rating: number}) {
   );
 }
 
-export function ProductCard({product, width = 140}: {product: Product; width?: number}) {
+export function ProductCard({
+  product,
+  width = 140,
+  onPress,
+}: {
+  product: Product;
+  width?: number;
+  onPress?: () => void;
+}) {
   const [liked, setLiked] = useState(false);
   const oldPrice = Math.round(product.price * 1.12 * 100) / 100;
 
   return (
-    <View
+    <Pressable
+      onPress={onPress}
       style={{
         width,
         borderWidth: 1,
@@ -63,6 +72,9 @@ export function ProductCard({product, width = 140}: {product: Product; width?: n
           alignItems: 'center',
           justifyContent: 'center',
         }}>
+        {product.imageUrl ? (
+          <Image source={{uri: product.imageUrl}} style={{width: '100%', height: '100%'}} resizeMode="cover" />
+        ) : null}
         <Pressable
           onPress={() => setLiked(value => !value)}
           style={{
@@ -84,7 +96,6 @@ export function ProductCard({product, width = 140}: {product: Product; width?: n
             />
           </Svg>
         </Pressable>
-        <Text style={{color: colors.muted, fontSize: 12}}>{product.brand}</Text>
       </View>
 
       <View style={{backgroundColor: colors.orange, paddingVertical: 3}}>
@@ -107,6 +118,6 @@ export function ProductCard({product, width = 140}: {product: Product; width?: n
         </Text>
         <Text style={{color: colors.orange, fontSize: 16, fontWeight: '700'}}>{formatPrice(product.price)}</Text>
       </View>
-    </View>
+    </Pressable>
   );
 }
